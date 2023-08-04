@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Edu-SA";
+    src: url(./assets/fonts/Edu_SA_Beginner/EduSABeginner-VariableFont_wght.ttf)
+      format("truetype");
+  }
+  
+  .font-Monoton {
+    font-family: "Monoton";
+  }
+  
+  .font-Edu-SA {
+    font-family: "Edu-SA";
+  }
