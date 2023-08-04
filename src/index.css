@@ -3,25 +3,31 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "Edu-SA";
-    src: url(./assets/fonts/Edu_SA_Beginner/EduSABeginner-VariableFont_wght.ttf)
-      format("truetype");
-  }
-  
-  .font-Monoton {
-    font-family: "Monoton";
-  }
-  
-  .font-Edu-SA {
-    font-family: "Edu-SA";
-  }
-  body {
+	font-family: "Edu-SA";
+	src: url(./assets/fonts/Edu_SA_Beginner/EduSABeginner-VariableFont_wght.ttf) format("truetype");
+}
 
-	background: linear-gradient(45deg, #000000,#434343); 
-    
+.font-Monoton {
+	font-family: "Monoton";
+}
+
+.font-Edu-SA {
+	font-family: "Edu-SA";
+}
+
+body {
+
+
+
+	background: #373B44;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(45deg, #4286f4, #373B44);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(45deg, #4286f4, #373B44);
+
 	background-size: 400% 400%;
 	animation: gradient 10s ease infinite;
-    
+
 	height: 100vh;
 }
 
@@ -29,9 +35,11 @@
 	0% {
 		background-position: 0% 50%;
 	}
+
 	50% {
 		background-position: 100% 50%;
 	}
+
 	100% {
 		background-position: 0% 50%;
 	}

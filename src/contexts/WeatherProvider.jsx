@@ -5,7 +5,7 @@ const API_KEY = "32b7a5b5e839b0591ed01ab390d97473";
 const WeatherContext = createContext();
 const initialState = {
     loading:false,
-    error:"",
+    error:false,
   initialCity: "rasht",
   searchQuery: "",
   currentCityData: {},
@@ -31,9 +31,6 @@ const reducer = (state, action) => {
     case "set_error":return{
         ...state,error:action.payload
     }
-    case "clear_error":return{
-        ...state,error:""
-    }
     default:
       throw new Error("action type not defined");
   }
@@ -47,19 +44,19 @@ function WeatherProvider({ children }) {
     initialState
   );
   useEffect(() => {
+    console.log(error)
     async function fetchData() {
       try {
-        dispatch({type:"clear_error"})
-        dispatch({type:"start_loading"})
+          dispatch({type:"start_loading"})
+          dispatch({type:"set_error",payload:false})
         const res = await fetch(
           `https://api.openweathermap.org/data/2.5/weather?q=${initialCity}&appid=${API_KEY}`
         );
         const data = await res.json();
         dispatch({ type: "setCurrentCityData", payload: data });
         console.log(data);
-      } catch (error) {
-        console.error(error);
-        dispatch({type:"set_error",payload:error.message})
+      } catch{
+        dispatch({type:"set_error",payload:true})
 
       }finally{
         dispatch({type:"end_loading"})
@@ -70,7 +67,7 @@ function WeatherProvider({ children }) {
   const handleSubmit = () => {
     async function fetchData() {
       try {
-        dispatch({type:"clear_error"})
+        dispatch({type:"set_error",payload:false})
         dispatch({type:"start_loading"})
         const res = await fetch(
           `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid=${API_KEY}`
@@ -78,9 +75,8 @@ function WeatherProvider({ children }) {
         const data = await res.json();
         dispatch({ type: "setCurrentCityData", payload: data });
         console.log(data, currentCityData);
-      } catch (error) {
-        console.error(error);
-        dispatch({type:"set_error",payload:error.message})
+      } catch{
+        dispatch({type:"set_error",payload:true})
       }finally{
         dispatch({type:"end_loading"})
       }
