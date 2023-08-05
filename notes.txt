@@ -1,1 +1,5 @@
 clean code and refactor
+delete extra packages
+real time data
+better error handling for city not found 
+design loading and error page
