@@ -8,7 +8,7 @@
 <h2>This is a weather app demo</h2>
 
 <br /><br />
-![Product Name Screen Shot]()
+![Product Name Screen Shot](./public/weather-app-demo-compresed.gif)
 <br /><br />
 I coded this project with focusing on <strong><a href="https://react.dev">React.js</a></strong> library and css <strong><a href="https://tailwindcss.com/">tailwind</a></strong> framework.<br /><br />
 I used open weather api for this project. <strong><a href="https://openweathermap.org/api">OpenWeather</a></strong><br />
