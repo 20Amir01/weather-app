@@ -10,8 +10,7 @@
 <br /><br />
 ![Product Name Screen Shot](./public/weather-app-demo-compresed.gif)
 <br /><br />
-I coded this project with focusing on <strong><a href="https://react.dev">React.js</a></strong> library and css <strong><a href="https://tailwindcss.com/">tailwind</a></strong> framework.<br /><br />
-I used open weather api for this project. <strong><a href="https://openweathermap.org/api">OpenWeather</a></strong><br />
+I used open weather api for this project . <strong><a href="https://openweathermap.org/api">OpenWeather</a></strong><br />
 <br/><br/>
 
 ### Built With
@@ -21,7 +20,8 @@ I used open weather api for this project. <strong><a href="https://openweatherma
 <p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/> </a> </p>
 <br/><br/>
 <!-- GETTING STARTED -->
-## Getting Started<br/>
+<h2>Getting Started</h2>
+<br/>
 This React project has built with [Vite](https://vitejs.dev/).<br/>
 Vite is a local development server written by Evan You and used by default by Vue and for React project templates. It has support for TypeScript and JSX.
 <br/><br/>
