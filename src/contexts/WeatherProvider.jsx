@@ -5,12 +5,17 @@ const WeatherContext = createContext();
 const initialState = {
   loading: false,
   errorMessage: "",
-  initialCity: "rasht",
+  defaultCity:(JSON.parse(window.localStorage.getItem("city"))?JSON.parse(window.localStorage.getItem("city")):"Tehran"),
   searchQuery: "",
   currentCityData: {},
 };
 const reducer = (state, action) => {
   switch (action.type) {
+    case "defaultCiy/set":
+      return {
+        ...state,
+        defaultCity: action.payload?action.payload:"Tehran",
+      };
     case "city/set":
       return {
         ...state,
@@ -45,12 +50,13 @@ const reducer = (state, action) => {
       throw new Error("action type not defined");
   }
 };
+// const localStorage = JSON.parse(window.localStorage.getItem("city"));
 WeatherProvider.propTypes = {
   children: PropTypes.node,
 };
 function WeatherProvider({ children }) {
   const [
-    { searchQuery, currentCityData, initialCity, loading, errorMessage },
+    { searchQuery, currentCityData, defaultCity, loading, errorMessage },
     dispatch,
   ] = useReducer(reducer, initialState);
   useEffect(() => {
@@ -58,8 +64,9 @@ function WeatherProvider({ children }) {
       try {
         dispatch({ type: "error/clear" });
         dispatch({ type: "loading/start" });
+        // dispatch({type:"defaultCiy/set",payload:JSON.parse(window.localStorage.getItem("city"))})
         const res = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${initialCity}&appid=${API_KEY}`
+          `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${API_KEY}`
         );
         const data = await res.json();
         dispatch({ type: "currentCityData/set", payload: data });
@@ -70,7 +77,7 @@ function WeatherProvider({ children }) {
       }
     }
     fetchData();
-  }, [initialCity, errorMessage]);
+  }, [defaultCity, errorMessage]);
   const handleSubmit = () => {
     async function fetchData() {
       try {
@@ -94,18 +101,17 @@ function WeatherProvider({ children }) {
       value={{
         searchQuery,
         currentCityData,
-        initialCity,
+        defaultCity,
         handleSubmit,
         loading,
         dispatch,
         errorMessage,
-        API_KEY
+        API_KEY,
       }}
     >
       {children}
     </WeatherContext.Provider>
   );
 }
-
 
 export { WeatherContext, WeatherProvider };

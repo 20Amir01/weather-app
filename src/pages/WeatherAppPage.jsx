@@ -1,11 +1,12 @@
 import { useWeather } from "../customHooks/useWeather";
-import { Search } from "../components/Search";
-import { Time } from "../components/Time";
 import { temp } from "../functions/functions";
-import { Forecast } from "../components/Forecast";
-import { Line } from "../components/Line";
+import  Search  from "../components/Search";
+import  Time  from "../components/Time";
+import  Forecast  from "../components/Forecast";
+import  Line  from "../components/Line";
 
-export function WeatherAppPage() {
+
+function WeatherAppPage() {
   const { currentCityData } = useWeather();
   return (
     <div className="flex flex-col md:flex-row w-full p-5">
@@ -13,7 +14,7 @@ export function WeatherAppPage() {
         <Time />
         <div>
           <div className="text-center flex flex-col gap-10 text-gray-200">
-            <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5">
               <h1 className="text-6xl md:text-9xl flex gap-5 justify-center items-center">
                 <span className="capitalize">
                   {currentCityData.cod !== "404"
@@ -52,7 +53,6 @@ export function WeatherAppPage() {
                 <>
                   <div>humidity:{currentCityData.main.humidity}</div>
                   <div>pressure :{currentCityData.main.pressure}</div>
-                  <div>sea level :{currentCityData.main.sea_level}</div>
                 </>
               )}
             </div>
@@ -107,3 +107,4 @@ export function WeatherAppPage() {
     </div>
   );
 }
+export default WeatherAppPage;

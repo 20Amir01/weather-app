@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 import { useState } from "react";
 import { useWeather } from "../customHooks/useWeather";
 import { temp } from "../functions/functions";
 
 
-export function Forecast() {
+function Forecast() {
   const { currentCityData, dispatch,API_KEY } = useWeather();
   const [forecast, setForecast] = useState(null);
   useEffect(() => {
@@ -70,3 +70,4 @@ export function Forecast() {
     </>
   );
 }
+export default memo(Forecast);
